@@ -1,6 +1,5 @@
-guard :minitest do
-  watch(%r|^lib/|) { 'test' }
-
-  watch('test/test_helper.rb') { 'test' }
-  watch(%r|^test/|)
+guard :rspec do
+  watch(%r{^spec/.+_spec\.rb$})
+  watch(%r{^lib/}) { 'spec' }
+  watch('spec/spec_helper.rb') { 'spec' }
 end
