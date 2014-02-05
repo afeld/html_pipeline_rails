@@ -1,12 +1,8 @@
-require 'minitest/spec'
-
-require 'action_view'
-require_relative '../lib/html_pipeline_rails'
+require_relative 'test_helper'
 
 describe "markdown views" do
   def setup
-    @view = ActionView::Base.new
-    @view.view_paths << File.join(File.dirname(__FILE__), 'templates')
+    setup_view_instance
   end
 
   it "inline rendering" do
