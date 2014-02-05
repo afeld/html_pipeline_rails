@@ -1,4 +1,5 @@
 require 'action_view/test_case'
+require_relative '../lib/html_pipeline_rails'
 
 class MarkdownTest < ActionView::TestCase
   def test_inline_rendering
