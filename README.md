@@ -21,8 +21,10 @@ All views ending in `.md` will then be rendered as HTML.  Otherwise, they act th
 By default, `.md` views will run through ERB, and then the `MarkdownFilter` pipeline.  You can customize the render pipeline like so:
 
 ```ruby
-# Somewhere in the `config` block in
-# config/application.rb
+# Add alongside your other configuration in
+#
+#   config/application.rb
+
 HtmlPipelineRails.config do |c|
   c.pipeline = HTML::Pipeline.new([
     HTML::Pipeline::MarkdownFilter,
