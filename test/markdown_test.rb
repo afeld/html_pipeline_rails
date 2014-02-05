@@ -1,15 +1,22 @@
 require 'minitest/spec'
 
-require 'action_view/test_case'
+require 'action_view'
 require_relative '../lib/html_pipeline_rails'
 
-class MarkdownTest < ActionView::TestCase
-  test "inline rendering" do
+describe "markdown views" do
+  def setup
+    @view = ActionView::Base.new
+  end
+
+  it "inline rendering" do
     template = '# A Heading'
-    result = '<h1>A Heading</h1>'
+    result = @view.render inline: template, type: :md
+    result.must_equal('<h1>A Heading</h1>')
+  end
 
-    render inline: template, type: :md
-
-    result.must_equal(rendered)
+  it "doesn't affect normal HTML rendering" do
+    template = '# A Heading'
+    result = @view.render inline: template
+    result.must_equal(template)
   end
 end
