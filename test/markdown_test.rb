@@ -30,4 +30,11 @@ describe "markdown views" do
     result = @view.render('fake_md')
     result.must_equal("# Fake Heading\n")
   end
+
+  it "interprets ERB" do
+    template = '<%= 1 + 1 %>'
+    result = @view.render(inline: template, type: :md)
+    # not sure why it gets wrapped...
+    result.must_equal('<p>2</p>')
+  end
 end
