@@ -33,4 +33,17 @@ describe "markdown views" do
     # not sure why it gets wrapped...
     expect(result).to eq('<p>2</p>')
   end
+
+  it "uses the configured pipeline" do
+    HtmlPipelineRails.config do |c|
+      c.pipeline = HTML::Pipeline.new([
+        HTML::Pipeline::MarkdownFilter,
+        HTML::Pipeline::MentionFilter
+      ])
+    end
+
+    template = '@afeld'
+    result = @view.render(inline: template, type: :md)
+    expect(result).to eq('<p><a href="/afeld" class="user-mention">@afeld</a></p>')
+  end
 end

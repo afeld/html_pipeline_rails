@@ -10,9 +10,7 @@ module HtmlPipelineRails
       compiled_source = self.class.erb.call(template)
 
       <<-END
-        pipeline = HTML::Pipeline.new([
-          HTML::Pipeline::MarkdownFilter
-        ])
+        pipeline = HtmlPipelineRails.configuration.pipeline
         result = pipeline.call(begin;#{compiled_source};end)
         result[:output].to_s
       END
