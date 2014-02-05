@@ -32,4 +32,6 @@ Run tests with:
 
 ```bash
 bundle exec testrb test/*_test.rb
+# or
+bundle exec guard
 ```
