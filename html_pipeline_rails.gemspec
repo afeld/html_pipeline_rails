@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'html/pipeline/rails/version'
+require 'html_pipeline_rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "html-pipeline-rails"
-  spec.version       = Html::Pipeline::Rails::VERSION
+  spec.name          = "html_pipeline_rails"
+  spec.version       = HtmlPipelineRails::VERSION
   spec.authors       = ["Aidan Feldman"]
   spec.email         = ["aidan.feldman@gmail.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
