@@ -16,6 +16,7 @@ module HtmlPipelineRails
       END
     end
 
+    # via http://stackoverflow.com/a/10131299/358804
     def self.erb
       @erb ||= ActionView::Template.registered_template_handler(:erb)
     end

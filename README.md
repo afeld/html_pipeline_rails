@@ -1,32 +1,39 @@
 # HTML::Pipeline for Rails
 
-TODO: Write a gem description
+Adds support for rendering views via [HTML::Pipeline](https://github.com/jch/html-pipeline) in Rails.  [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) in your Rails app!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your Gemfile:
 
-    gem 'html_pipeline_rails'
+```ruby
+gem 'html_pipeline_rails'
+```
 
-And then execute:
+and then run:
 
     $ bundle
 
-Or install it yourself as:
+All views ending in `.md` will then be rendered as HTML.  Otherwise, they act the same as normal `.html.erb` files.  Cool, eh?
 
-    $ gem install html_pipeline_rails
+## Customization
 
-## Usage
+By default, `.md` views will run through ERB, and then the `MarkdownFilter` pipeline.  You can customize the render pipeline like so:
 
-TODO: Write usage instructions here
+```ruby
+# Somewhere in the `config` block in
+# config/application.rb
+HtmlPipelineRails.config do |c|
+  c.pipeline = HTML::Pipeline.new([
+    HTML::Pipeline::MarkdownFilter,
+    HTML::Pipeline::MentionFilter
+  ])
+end
+```
+
+In this case, `@mention`s will now be converted to links.  See [the HTML::Pipeline documentation](https://github.com/jch/html-pipeline#usage) to learn about the different options.
 
 ## Contributing
-
-1. Fork it ( http://github.com/<my-github-username>/html_pipeline_rails/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
 
 Run tests with:
 
