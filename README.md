@@ -40,7 +40,9 @@ In this case, `@mention`s will now be converted to links.  See [the HTML::Pipeli
 Run tests with:
 
 ```bash
-bundle exec testrb test/*_test.rb
+bundle
+# then
+bundle exec rspec
 # or
 bundle exec guard
 ```
