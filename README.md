@@ -1,4 +1,4 @@
-# HTML::Pipeline for Rails
+# HTML::Pipeline for Rails [![Build Status](https://travis-ci.org/afeld/html_pipeline_rails.png?branch=master)](https://travis-ci.org/afeld/html_pipeline_rails)
 
 Adds support for rendering views via [HTML::Pipeline](https://github.com/jch/html-pipeline) in Rails.  [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) in your Rails app!
 
