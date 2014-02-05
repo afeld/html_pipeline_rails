@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = HtmlPipelineRails::VERSION
   spec.authors       = ["Aidan Feldman"]
   spec.email         = ["aidan.feldman@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{Render Markdown via HTML::Pipeline in Rails.}
+  spec.homepage      = "https://github.com/afeld/html_pipeline_rails/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
