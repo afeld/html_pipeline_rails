@@ -46,4 +46,16 @@ describe "markdown views" do
     result = @view.render(inline: template, type: :md)
     expect(result).to eq('<p><a href="/afeld" class="user-mention">@afeld</a></p>')
   end
+
+  it "inline rendering with mdown extension" do
+    template = '# A Heading'
+    result = @view.render(inline: template, type: :mdown)
+    expect(result).to eq('<h1>A Heading</h1>')
+  end
+
+  it "inline rendering with markdown extension" do
+    template = '# A Heading'
+    result = @view.render(inline: template, type: :markdown)
+    expect(result).to eq('<h1>A Heading</h1>')
+  end
 end
