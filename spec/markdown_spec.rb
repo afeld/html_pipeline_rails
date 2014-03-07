@@ -5,10 +5,17 @@ describe "markdown views" do
     setup_view_instance
   end
 
+  def render_md(template)
+    @view.render(inline: template, type: :md)
+  end
+
+  def expect_rendered(template)
+    result = render_md(template)
+    expect(result)
+  end
+
   it "inline rendering" do
-    template = '# A Heading'
-    result = @view.render(inline: template, type: :md)
-    expect(result).to eq('<h1>A Heading</h1>')
+    expect_rendered('# A Heading').to eq('<h1>A Heading</h1>')
   end
 
   it "doesn't affect normal HTML rendering" do
@@ -28,16 +35,12 @@ describe "markdown views" do
   end
 
   it "interprets ERB" do
-    template = '<%= 1 + 1 %>'
-    result = @view.render(inline: template, type: :md)
     # not sure why it gets wrapped...
-    expect(result).to eq('<p>2</p>')
+    expect_rendered('<%= 1 + 1 %>').to eq('<p>2</p>')
   end
 
   it "interprets Markdown passed through ERB tags" do
-    template = '<%= "# The Title" %>'
-    result = @view.render(inline: template, type: :md)
-    expect(result).to eq('<h1>The Title</h1>')
+    expect_rendered('<%= "# The Title" %>').to eq('<h1>The Title</h1>')
   end
 
   it "uses the configured pipeline" do
@@ -48,9 +51,7 @@ describe "markdown views" do
       ])
     end
 
-    template = '@afeld'
-    result = @view.render(inline: template, type: :md)
-    expect(result).to eq('<p><a href="/afeld" class="user-mention">@afeld</a></p>')
+    expect_rendered('@afeld').to eq('<p><a href="/afeld" class="user-mention">@afeld</a></p>')
   end
 
   it "inline rendering with mdown extension" do
