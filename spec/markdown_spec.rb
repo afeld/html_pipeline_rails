@@ -34,6 +34,12 @@ describe "markdown views" do
     expect(result).to eq('<p>2</p>')
   end
 
+  it "interprets Markdown passed through ERB tags" do
+    template = '<%= "# The Title" %>'
+    result = @view.render(inline: template, type: :md)
+    expect(result).to eq('<h1>The Title</h1>')
+  end
+
   it "uses the configured pipeline" do
     HtmlPipelineRails.config do |c|
       c.pipeline = HTML::Pipeline.new([
