@@ -14,7 +14,27 @@ and then run:
 
     $ bundle
 
-All views ending in `.md` will then be rendered as HTML.  Otherwise, they act the same as normal `.html.erb` files.  Cool, eh?
+All views ending in `.md` will then be rendered as HTML, with support for ERB.
+
+## Example
+
+`app/views/layouts/application.html.erb`:
+
+```erb
+<footer>
+  <%= render 'shared/footer' %>
+</footer>
+```
+
+`app/views/shared/footer.md`:
+
+```markdown
+## Copyright <%= Time.now.year %> **BigCorp**
+
+All rights reserved.
+```
+
+Cool, eh?
 
 ## Customization
 
