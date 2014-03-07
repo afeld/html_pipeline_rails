@@ -38,7 +38,7 @@ Cool, eh?
 
 ## Customization
 
-By default, `.md` views will run through ERB, and then the `MarkdownFilter` pipeline.  You can customize the render pipeline like so:
+By default, `.md` views will run through ERB, and then the `MarkdownFilter` pipeline.  Note that this means anything output from your ERB tags in a `.md` view will be parsed as Markdown.  You can customize the render pipeline like so:
 
 ```ruby
 # config/initializers/html_pipeline.rb
