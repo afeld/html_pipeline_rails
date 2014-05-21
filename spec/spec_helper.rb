@@ -3,6 +3,9 @@
 # Require this file using `require "spec_helper"` to ensure that it is only
 # loaded once.
 
+# workaround for https://github.com/rails/rails/issues/14686
+require 'action_dispatch/http/mime_type'
+
 require 'action_view'
 require_relative '../lib/html_pipeline_rails'
 
